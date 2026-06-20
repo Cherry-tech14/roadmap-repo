@@ -42,24 +42,50 @@
 
 // }
 
+// package main
+
+// import (
+// 	"fmt"
+// )
+
+// func withdraw(balance int, amount int) (int, error) {
+// 	if amount > balance {
+// 		return 0, fmt.Errorf("insufficient balance")
+// 	}
+
+// 	return balance - amount, nil
+// }
+// func main() {
+// 	newBalance, err := withdraw(2000, 3000)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 		return
+// 	}
+// 	fmt.Println(newBalance)
+// }
+
 package main
 
 import (
 	"fmt"
 )
 
-func withdraw(balance int, amount int) (int, error) {
-	if amount > balance {
-		return 0, fmt.Errorf("insufficient balance")
-	}
+func login(username string, password string) error {
+	if username != "admin" {
+		return fmt.Errorf("invalid login")
 
-	return balance - amount, nil
+	}
+	if password != "12345" {
+		return fmt.Errorf("invalid login")
+	}
+	return nil
 }
+
 func main() {
-	newBalance, err := withdraw(2000, 3000)
+	err := login("admin", "123")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(newBalance)
+	fmt.Println("login successful")
 }
