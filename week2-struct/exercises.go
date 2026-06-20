@@ -160,3 +160,37 @@
 
 // }
 
+package main
+
+import (
+	"fmt"
+)
+
+type Car struct {
+	Brand string
+	Model string
+	Speed int
+}
+
+func (c Car) Drive() {
+	if c.Speed > 100 {
+		fmt.Println(c.Brand, "is driving fast")
+	} else {
+		fmt.Println(c.Brand, "is driving slowly")
+	}
+}
+func main() {
+	car1 := Car{
+		Brand: "Toyota",
+		Model: "Camry",
+		Speed: 180,
+	}
+
+	car2 := Car{
+		Brand: "Honda",
+		Model: "Civic",
+		Speed: 80,
+	}
+	car1.Drive()
+	car2.Drive()
+}
